@@ -17,10 +17,10 @@ const NavItem = ({
     <a
       href={path}
       className={cn(
-        "px-4 py-1.5 rounded-full text-white/70 text-sm font-semibold duration-200 transition-all hover:bg-white hover:text-gray-900",
+        "px-4 py-1.5 rounded-full text-white/70 text-xs font-semibold duration-200 transition-all hover:bg-white hover:text-gray-900",
         {
           "bg-white text-gray-900": hash === path,
-        }
+        },
       )}
     >
       {label}

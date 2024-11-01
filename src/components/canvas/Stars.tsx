@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import {
   useState,
   useRef,
@@ -9,23 +10,20 @@ import { Canvas, useFrame } from "@react-three/fiber";
 import { Points, PointMaterial, Preload } from "@react-three/drei";
 import { random } from "maath";
 import CanvasLoader from "./CanvasLoader";
+import { useSearchParams } from "react-router-dom";
 
-const Stars = ({ height, ...props }: any) => {
+const Stars = (props: any) => {
   const ref: any = useRef(null!);
+  const [searchParams] = useSearchParams();
+  const starsCount = searchParams.get("starsCount") ?? "4000";
   const [sphere] = useState(() =>
-    random.inSphere(new Float32Array(7000), { radius: 1.2 })
+    random.inSphere(new Float32Array(parseInt(starsCount)), { radius: 1.2 }),
   );
 
   useFrame((_state, delta) => {
     ref.current.rotation.x -= delta / 10;
     ref.current.rotation.y -= delta / 15;
   });
-
-  useEffect(() => {
-    if (ref.current.offsetHeight) {
-      ref.current.offsetHeight = height;
-    }
-  }, [height]);
 
   return (
     <group rotation={[0, 0, Math.PI / 4]}>
@@ -48,14 +46,16 @@ const StarsCanvas = ({ children }: PropsWithChildren) => {
 
   useEffect(() => {
     if (childrenRef.current) {
-      const updateHeight = () => setHeight(childrenRef.current?.offsetHeight);
+      const updateSize = () => {
+        setHeight(childrenRef.current?.offsetHeight);
+      };
 
       // Create a ResizeObserver to watch for height changes
-      const resizeObserver = new ResizeObserver(updateHeight);
+      const resizeObserver = new ResizeObserver(updateSize);
       resizeObserver.observe(childrenRef.current);
 
       // Initial height setup
-      updateHeight();
+      updateSize();
 
       return () => {
         resizeObserver.disconnect();
@@ -66,13 +66,10 @@ const StarsCanvas = ({ children }: PropsWithChildren) => {
   return (
     <>
       <div ref={childrenRef}>{children}</div>
-      <div
-        className="w-full absolute inset-0 z-[-1] top-[100vh]"
-        style={{ height }}
-      >
+      <div className="absolute inset-0 z-[-1] top-[100vh]" style={{ height }}>
         <Canvas camera={{ position: [0, 0, 1] }}>
           <Suspense fallback={<CanvasLoader />}>
-            <Stars height={height} />
+            <Stars />
           </Suspense>
           <Preload all />
         </Canvas>

@@ -1,28 +1,30 @@
 import { useEffect, useRef } from "react";
-import { useNavigate } from "react-router";
+import { useLocation, useNavigate } from "react-router";
 
 const useSetInViewParamsHash = () => {
   const ref = useRef<HTMLDivElement>(null);
 
   const navigate = useNavigate();
+  const { search } = useLocation();
 
   useEffect(() => {
+    const newRef = ref.current;
     const observer = new IntersectionObserver(([entry]) => {
       if (entry.isIntersecting) {
-        navigate(`#${ref.current?.id}`);
+        navigate(`${search}#${newRef?.id}`);
       }
     });
 
-    if (ref.current) {
-      observer.observe(ref.current);
+    if (newRef) {
+      observer.observe(newRef);
     }
 
     return () => {
-      if (ref.current) {
-        observer.unobserve(ref.current);
+      if (newRef) {
+        observer.unobserve(newRef);
       }
     };
-  }, [ref.current]);
+  }, [navigate, search]);
 
   return ref;
 };

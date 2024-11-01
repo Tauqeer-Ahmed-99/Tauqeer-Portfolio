@@ -14,7 +14,7 @@ const Hero = () => {
             <div className="w-4 h-4 rounded-full bg-primary"></div>
             <div className="relative w-2 h-full left-1 bottom-1 bg-gradient-to-b from-primary to-transparent"></div>
           </div>
-          <div className="relative z-20 flex flex-col gap-2 my-4">
+          <div className="relative z-20 flex flex-col gap-4 my-4 md:gap-2">
             <h1 className="text-4xl font-extrabold md:text-6xl">
               Hi, I'm <span className="text-primary">Tauqeer Ahmed</span>
             </h1>
@@ -36,7 +36,7 @@ const Hero = () => {
             </h5>
           </div>
         </div>
-        <div className="absolute w-[350px] md:w-[500px] md:left-[10%] lg:w-[800px] h-96 lg:h-[600px] 3xl:h-[720px] top-36 lg:top-8 lg:left-[20%] z-10">
+        <div className="absolute w-[300px] md:w-[500px] md:left-[10%] lg:w-[800px] h-96 lg:h-[600px] 3xl:h-[720px] top-52 lg:top-8 lg:left-[20%] z-10">
           <DesktopCanvas />
           <a
             href="#about"
