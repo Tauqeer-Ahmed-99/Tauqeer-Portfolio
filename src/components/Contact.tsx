@@ -182,7 +182,7 @@ const Contact = () => {
             <h3 className="text-white font-black md:text-[60px] sm:text-[50px] xs:text-[40px] text-[30px]">
               Social Media.
             </h3>
-            <div className="flex gap-8 mt-4 md:mt-0">
+            <div className="flex gap-8 my-4 md:mt-0">
               {socialNetworks.map((social, index) => (
                 <SocialNetworkCard
                   key={social.name}
@@ -191,6 +191,21 @@ const Contact = () => {
                 />
               ))}
             </div>
+
+            <h3 className="pb-4 text-lg">Khan Tauqeer Ahmed Kareem</h3>
+            <p className="pb-4">
+              Address: Flat No. 601/602, Uzair Tower, Opp. Bhoiwada, Next to
+              Zoya Complex, Near J.P. Resort, Valipeer Road, Kalyan 421301.
+            </p>
+            <p className="pb-4">
+              Contact: <a href="phone:+918879998633">+91 8879998633</a>
+            </p>
+            <p className="pb-4">
+              Email:{" "}
+              <a href="mailto:tauqueerrkhan@gmail.com">
+                tauqueerrkhan@gmail.com
+              </a>
+            </p>
           </motion.div>
         </div>
       </motion.div>
