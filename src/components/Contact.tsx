@@ -198,7 +198,7 @@ const Contact = () => {
               Zoya Complex, Near J.P. Resort, Valipeer Road, Kalyan 421301.
             </p>
             <p className="pb-4">
-              Contact: <a href="phone:+918879998633">+91 8879998633</a>
+              Contact: 
             </p>
             <p className="pb-4">
               Email:{" "}
