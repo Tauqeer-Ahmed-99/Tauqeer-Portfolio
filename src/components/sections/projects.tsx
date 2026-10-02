@@ -2,6 +2,7 @@
 
 import { projects, otherProjects } from "@/lib/data";
 import Image from "next/image";
+import { skillIconMap } from "@/components/sections/skills";
 import { ArrowUpRight } from "lucide-react";
 import { motion } from "framer-motion";
 
@@ -59,9 +60,22 @@ export function Projects() {
                     {project.title}
                   </h3>
                   <p className="text-zinc-500 text-sm mb-2">{project.subtitle}</p>
-                  <p className="text-zinc-400 font-light text-sm">
-                    {project.technologies.slice(0, 4).join(" · ")}
-                  </p>
+                  <div className="flex flex-wrap gap-2 mt-3">
+                    {project.technologies.map((tech, idx) => {
+                      const iconPath = skillIconMap[tech];
+                      return (
+                        <span key={idx} className="flex items-center gap-1.5 text-xs text-zinc-400 bg-white/[0.03] border border-white/5 px-2 py-1 rounded-md">
+                          {iconPath && (
+                            <span className="w-3 h-3 relative shrink-0 inline-flex">
+                              {/* eslint-disable-next-line @next/next/no-img-element */}
+                              <img src={iconPath} alt={tech} className="w-full h-full object-contain opacity-80" />
+                            </span>
+                          )}
+                          {tech}
+                        </span>
+                      );
+                    })}
+                  </div>
                 </div>
 
                 {project.link && (
@@ -94,7 +108,23 @@ export function Projects() {
                 <div className="flex flex-col md:flex-row md:items-center gap-2 md:gap-6">
                   <h4 className="text-lg font-medium text-zinc-200 group-hover:text-white transition-colors">{project.title}</h4>
                   <span className="hidden md:block w-1 h-1 rounded-full bg-zinc-700" />
-                  <p className="text-zinc-500 font-light text-sm">{project.technologies}</p>
+                  <div className="flex flex-wrap gap-2 mt-2 md:mt-0">
+                    {project.technologies.split(", ").map((tech, idx) => {
+                      const cleanTech = tech.trim();
+                      const iconPath = skillIconMap[cleanTech];
+                      return (
+                        <span key={idx} className="flex items-center gap-1.5 text-xs text-zinc-400 bg-white/[0.03] border border-white/5 px-2 py-1 rounded-md">
+                          {iconPath && (
+                            <span className="w-3 h-3 relative shrink-0 inline-flex">
+                              {/* eslint-disable-next-line @next/next/no-img-element */}
+                              <img src={iconPath} alt={cleanTech} className="w-full h-full object-contain opacity-80" />
+                            </span>
+                          )}
+                          {cleanTech}
+                        </span>
+                      );
+                    })}
+                  </div>
                 </div>
                 <div className="flex items-center gap-4 mt-4 md:mt-0">
                   {project.github && (

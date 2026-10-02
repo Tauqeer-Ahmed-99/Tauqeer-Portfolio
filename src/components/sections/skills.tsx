@@ -3,12 +3,14 @@
 import { skills } from "@/lib/data";
 import { motion } from "framer-motion";
 
-const skillIconMap: Record<string, string> = {
+export const skillIconMap: Record<string, string> = {
   "React.js": "/svg/react.svg",
+  "React": "/svg/react.svg",
   "TypeScript": "/svg/typescript.svg",
   "Next.js": "/svg/nextjs.svg",
   "JavaScript (ES6+)": "/svg/javascript.svg",
   "Tailwind CSS": "/svg/tailwind.svg",
+  "Tailwind": "/svg/tailwind.svg",
   "MUI": "/svg/mui.svg",
   "HTML": "/svg/html.svg",
   "CSS": "/svg/css.svg",
@@ -23,8 +25,12 @@ const skillIconMap: Record<string, string> = {
   "React Query": "/svg/react-query.svg",
   "Flutter": "/svg/flutter.svg",
   "Flutter Provider": "/svg/flutter.svg",
+  "Provider SDK": "/svg/flutter.svg",
   "Expo": "/svg/expo.svg",
   "Firebase": "/svg/firebase.svg",
+  "Firestore": "/svg/firebase.svg",
+  "FirestoreDB": "/svg/firebase.svg",
+  "Firestore RTDB": "/svg/firebase.svg",
   "MongoDB": "/svg/mongodb.svg",
   "Docker": "/svg/docker.svg",
   "Docker Compose": "/svg/docker.svg",
@@ -39,6 +45,7 @@ const skillIconMap: Record<string, string> = {
   "Rust (exploring)": "/svg/rust.svg",
   "Azure Communication Services": "/svg/azure.svg",
   "Google Maps APIs": "/svg/google-maps.svg",
+  "Google Maps": "/svg/google-maps.svg",
   "JWT": "/svg/jwt.svg",
   "Fluent UI": "/svg/traefik.svg",
   "Mediasoup": "/images/mediasoup.webp",
