@@ -100,8 +100,8 @@ export const experience = [
       "Developed and maintained the IM360 CRM web application used across 50+ countries using React.js, TypeScript, and Fabric/Fluent UI — supports ~7% of Ingram Micro's yearly revenue.",
       "Improved application performance by 30% through efficient state management and frontend implementation.",
       "Diagnosed and resolved production incidents with 90% faster turnaround.",
-      "Developed \"Hive\", a Flutter-based mobile app for office desk reservations, improving employee efficiency by 60%.",
-      "Led development of \"IM Learning\", a workforce development platform.",
+      'Developed "Hive", a Flutter-based mobile app for office desk reservations, improving employee efficiency by 60%.',
+      'Led development of "IM Learning", a workforce development platform.',
       "Conducted 25+ technical interviews and trained 30+ developers in React.js.",
     ],
   },
@@ -140,7 +140,7 @@ export const projects = [
       "TypeScript",
       "PostgreSQL",
       "Drizzle ORM",
-      "Azure Communication Service",
+      "Azure Communication Services",
       "WorkOS",
     ],
     link: "https://nmtstore-nmt-store-web.vercel.app/",
@@ -208,7 +208,8 @@ export const otherProjects = [
   {
     title: "Tasks Management App",
     technologies: "Flutter, Back4App, Provider SDK",
-    github: "https://github.com/Tauqeer-Ahmed-99/Tasks-Management-Flutter-BITS-Pilani",
+    github:
+      "https://github.com/Tauqeer-Ahmed-99/Tasks-Management-Flutter-BITS-Pilani",
   },
   {
     title: "Assets Management App",
@@ -259,7 +260,8 @@ export const otherProjects = [
 
 export const education = [
   {
-    degree: "Master of Technology (M.Tech), Software Systems, Specialization in IoT",
+    degree:
+      "Master of Technology (M.Tech), Software Systems, Specialization in IoT",
     institution: "BITS Pilani - Work Integrated Learning Programmes",
     date: "Jan 2023 - Jan 2025",
     details: "CGPA: 7.87",
