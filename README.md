@@ -1,48 +1,36 @@
-# Tauqeer Ahmed Portfolio
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-Welcome to my portfolio repository! Here, I showcase projects that reflect my skills and experience in building efficient, scalable, and user-centric solutions across **web, mobile, and desktop applications**.
+## Getting Started
 
----
+First, run the development server:
 
-## About Me
+```bash
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
+```
 
-I'm a skilled software developer with expertise in **TypeScript, JavaScript, and Python**, and hands-on experience in frameworks such as **React, Next.js, React Native, Node.js, and Flutter**. I specialize in transforming designs into functional, high-performance applications, focusing on usability and efficiency to solve real-world challenges. Let's connect to discuss your next project!
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
----
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-## Projects
+This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-Each project below demonstrates my ability to solve complex problems, work across various technologies, and manage projects effectively. Check out the code repositories and live demos linked in each project.
+## Learn More
 
-### Project 1: [AutoPi Hub]
+To learn more about Next.js, take a look at the following resources:
 
-- **Description**: The AutoPi Hub Home Automation System provides a simple, secure, and flexible way to automate home devices using Raspberry Pi or similar device and a mobile app (Control Nest).
-- **Tech Stack**: Python, FastAPI, SQLAlchemy.
-- **Code Repository**: [GitHub Repository Link](https://github.com/Tauqeer-Ahmed-99/AutoPi-Hub)
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
----
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-### Project 2: [Control Nest]
+## Deploy on Vercel
 
-- **Description**: Control Nest is the mobile app companion to AutoPi Hub, designed to provide an intuitive interface for managing and automating your home devices. It allows users to control devices, create rooms, and automate tasks from their mobile devices.
-- **Tech Stack**: React, React Native, React Query, Expo.
-- **Code Repository**: [GitHub Repository Link](https://github.com/Tauqeer-Ahmed-99/Control-Nest)
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
----
-
-## Skills
-
-- **Languages**: TypeScript, JavaScript, Python
-- **Frameworks**: React, Next.js, React Native, Node.js, Flutter
-- **Expertise**: Building scalable applications, transforming designs into functional solutions, and enhancing user experiences.
-
----
-
-## Connect with Me
-
-- **LinkedIn**: [LinkedIn Profile](https://www.linkedin.com/in/tauqeerahmed99/)
-- **Email**: tauqueerrkhan@gmail.com
-
----
-
-Feel free to reach out! Let's turn ideas into impactful digital experiences together.
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.

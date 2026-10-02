@@ -1,0 +1,348 @@
+
+\documentclass[10pt,a4paper]{article}
+
+% ---------- Packages ----------
+\usepackage[
+    top=0.5in,
+    bottom=0.5in,
+    left=0.62in,
+    right=0.62in
+]{geometry}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{hyperref}
+\usepackage{xurl}
+\usepackage{microtype}
+
+% ---------- Hyperlinks ----------
+\hypersetup{
+    colorlinks=true,
+    urlcolor=black,
+    linkcolor=black
+}
+
+% ---------- Page ----------
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+
+% ---------- Section formatting ----------
+\titleformat{\section}
+    {\large\bfseries}
+    {}
+    {0em}
+    {}
+    [\titlerule]
+
+\titlespacing{\section}
+    {0pt}
+    {7pt}
+    {4pt}
+
+% ---------- Lists ----------
+\setlist[itemize]{
+    leftmargin=1.25em,
+    itemsep=1pt,
+    topsep=2pt,
+    parsep=0pt,
+    partopsep=0pt
+}
+
+\renewcommand{\labelitemi}{\textbullet}
+
+% ---------- Commands ----------
+\newcommand{\resumeHeader}[2]{
+    \begin{center}
+        {\LARGE \textbf{#1}}\\[3pt]
+        #2
+    \end{center}
+}
+
+\newcommand{\resumeEntry}[4]{
+    \textbf{#1} \hfill \textbf{#2}\\
+    \textit{#3} \hfill #4
+}
+
+% Project title with View link
+\newcommand{\projectEntry}[3]{
+    \textbf{#1} \hfill #2 \quad
+    \href{#3}{\textbf{[View]}}
+}
+
+% ==========================================================
+% DOCUMENT
+% ==========================================================
+
+\begin{document}
+
+% ---------- Header ----------
+\resumeHeader{Tauqeer Khan}{
+    Senior Software Engineer
+}
+
+\begin{center}
+    Kalyan, Maharashtra, India
+    \textbar{}
+    +91 88799 98633
+    \textbar{}
+    \href{mailto:tauqueerrkhan@gmail.com}{tauqueerrkhan@gmail.com}
+    \\[2pt]
+    \href{https://github.com/Tauqeer-Ahmed-99}{github.com/Tauqeer-Ahmed-99}
+    \textbar{}
+    \href{https://www.linkedin.com/in/tauqeerahmed99}{linkedin.com/in/tauqeerahmed99}
+    \textbar{}
+    \href{https://tauqeer-portfolio-green.vercel.app/}{tauqeer-ahmed.vercel.app}
+\end{center}
+
+% ---------- Summary ----------
+\section{Professional summary}
+
+Senior Software Engineer with 5+ years of experience building production web applications used across 50+ countries. Strong focus on React.js, TypeScript, Next.js, Node.js, PostgreSQL, and frontend architecture. Experienced in building shared UI components, improving application performance, reviewing code, mentoring engineers, and working with business stakeholders. I also build full-stack and infrastructure projects involving Docker, Redis, BullMQ, WebRTC, IoT, and Raspberry Pi. Currently exploring Go, Rust, and IoT systems, with a growing interest in backend engineering, systems programming, and connected devices.
+
+% ---------- Skills ----------
+\section{Technical skills}
+
+\textbf{Frontend:}
+React.js, TypeScript, Next.js, JavaScript (ES6+), React Query, Tailwind CSS, MUI, Fabric/Fluent UI, HTML, CSS
+
+\textbf{Backend:}
+Node.js, TypeScript, Python, FastAPI, Drizzle ORM, SQLAlchemy, PostgreSQL, MySQL, REST APIs, JWT
+
+\textbf{Mobile:}
+React Native, Flutter, Expo, Flutter Provider
+
+\textbf{DevOps and infrastructure:}
+Docker, Docker Compose, Git, GitHub, Bitbucket, CI/CD, Redis, BullMQ, Traefik, Cloudflare Tunnel
+
+\textbf{IoT and systems:}
+IoT, Raspberry Pi, Python, Go (exploring), Rust (exploring), WebRTC, Mediasoup
+
+\textbf{Other:}
+Firebase, WorkOS, Azure Communication Services, Google Maps APIs
+
+% ---------- Experience ----------
+\section{Professional experience}
+
+\resumeEntry
+{Ingram Micro}
+{Apr 2026 - Present}
+{Senior Software Engineer}
+{Mumbai, Maharashtra, India}
+
+\begin{itemize}
+    \item Drive frontend development of the Claiming Microfrontend within X4A, an in-house claims-processing platform built with React.js and TypeScript. Manage the Claiming MFE codebase and make implementation-level technical decisions across claim submission, validation, claim matching with credit notes, and status tracking workflows. The platform is used to reclaim around \$12 billion annually.
+    
+    \item Take a leading role in the Claiming MFE frontend team by coordinating implementation work, reviewing technical approaches, and helping engineers resolve codebase-level issues while working within the broader X4A architecture defined by the platform architecture team.
+    
+    \item Define and maintain the frontend structure of the Claiming MFE and build shared UI components used across 15+ teams, making new feature development faster.
+    
+    \item Lead code reviews and mentor 2 engineers on React.js and TypeScript practices, reducing PR turnaround time by around 20\%.
+    
+    \item Improved frontend performance through code splitting and lazy loading.
+\end{itemize}
+
+\resumeEntry
+{Ingram Micro}
+{Dec 2021 - Mar 2026}
+{Associate Software Developer}
+{Mumbai, Maharashtra, India}
+
+\begin{itemize}
+    \item Developed and maintained the IM360 CRM web application used across 50+ countries using React.js, TypeScript, and Fabric/Fluent UI. The application supports business operations that generate approximately 7\% of Ingram Micro's yearly revenue.
+    
+    \item Improved application performance by 30\% through more efficient state management and frontend implementation.
+    
+    \item Diagnosed and resolved production incidents with 90\% faster turnaround, reducing disruption to business users.
+    
+    \item Developed ``Hive'', a Flutter-based mobile application for office desk reservations, improving real-time booking processes and employee efficiency by 60\%.
+    
+    \item Led development of ``IM Learning'', a workforce development platform that helps employees track skills and align career growth.
+    
+    \item Worked with business stakeholders to understand requirements, define technical solutions, and implement application workflows for global teams.
+    
+    \item Conducted 25+ technical interviews and contributed to engineering hiring.
+    
+    \item Trained 30+ developers in React.js through a structured two-week training program.
+\end{itemize}
+
+% ---------- Projects ----------
+\section{Projects and open-source contributions}
+
+% ==========================================================
+% NMT DEPLOY
+% ==========================================================
+
+\projectEntry
+{NMT Deploy - Self-Hosted PaaS}
+{Next.js, React, TypeScript, Node.js, PostgreSQL, Drizzle ORM, Redis, BullMQ, Docker}
+{https://deploy.nmtsolutions.in/}
+
+\begin{itemize}
+    \item Built a self-hosted PaaS that deploys GitHub repositories to Docker with framework detection, generated production domains, encrypted environment variables, deployment history, and live build/runtime logs.
+    
+    \item Designed a monorepo architecture with separate web, API, worker, database, queue, and Docker packages. The web app uses Next.js and tRPC, while the API and worker handle deployment orchestration.
+    
+    \item Implemented background deployments with BullMQ, Redis, and Docker, covering repository cloning, Docker builds, deployment state, and log persistence.
+    
+    \item Added Traefik-based routing with generated application domains and optional Cloudflare Tunnel exposure for public deployments.
+    
+    \item Built deployment history and log workflows with branch, commit, status, timestamps, streamed logs, fullscreen log viewing, and redeploy actions.
+    
+    \item Added encrypted application environment variables and redeploy prompts when environment or build configuration changes.
+\end{itemize}
+
+% ==========================================================
+% NMT STORE
+% ==========================================================
+
+\projectEntry
+{NMT Store - E-commerce Platform}
+{Next.js, React Query, Node.js, TypeScript, PostgreSQL, Drizzle ORM, Azure Communication Service, WorkOS}
+{https://nmtstore-nmt-store-web.vercel.app/}
+
+\begin{itemize}
+    \item Built a full-stack e-commerce platform for electronic products with product listing, search, pagination, detailed product pages, and customer reviews.
+    
+    \item Implemented cart, checkout, and order management workflows with order history and order-detail views.
+    
+    \item Integrated Microsoft Azure Communication Services for transactional messaging and notifications, and WorkOS for authentication and enterprise SSO.
+\end{itemize}
+
+% ==========================================================
+% MEDIASOUP
+% ==========================================================
+
+\projectEntry
+{Meet Flow - Mediasoup Video Conferencing App}
+{Node.js, TypeScript, React, Drizzle ORM, PostgreSQL, Mediasoup}
+{https://meet-flow-ms.vercel.app/}
+
+\begin{itemize}
+    \item Building a low-latency WebRTC video conferencing application with Mediasoup for real-time audio and video communication.
+\end{itemize}
+
+% ==========================================================
+% AUTOPI
+% ==========================================================
+
+\projectEntry
+{AutoPi Hub - IoT-Based Home Automation System}
+{Python, FastAPI, SQLAlchemy, Raspberry Pi}
+{https://github.com/Tauqeer-Ahmed-99/AutoPi-Hub}
+
+\begin{itemize}
+    \item Built an IoT home automation platform using Raspberry Pi that lets users remotely control connected devices, improving system efficiency by 45\% through optimized API calls.
+    
+    \item Built the FastAPI backend with SQLAlchemy, achieving 30\% faster data processing and communication with smart devices.
+\end{itemize}
+
+% ==========================================================
+% CONTROL NEST
+% ==========================================================
+
+\projectEntry
+{Control Nest - Mobile App for Smart Home Control}
+{React Native, React Query, Expo}
+{https://github.com/Tauqeer-Ahmed-99/Control-Nest/releases/tag/v1.0.1}
+
+\begin{itemize}
+    \item Built a React Native application for remote smart home control with real-time automation, reducing manual user intervention by 50\%.
+\end{itemize}
+
+% ==========================================================
+% TASKS
+% ==========================================================
+
+\projectEntry
+{Tasks Management App}
+{Flutter, Back4App, Flutter Provider SDK}
+{https://github.com/Tauqeer-Ahmed-99/Tasks-Management-Flutter-BITS-Pilani}
+
+\begin{itemize}
+    \item Developed a real-time task management system with a personalized dashboard using Back4App, increasing productivity by 35\%.
+\end{itemize}
+
+% ==========================================================
+% ASSETS
+% ==========================================================
+
+\projectEntry
+{Assets Management App}
+{Flutter, Firebase, Flutter Provider SDK}
+{https://github.com/Tauqeer-Ahmed-99/Flutter-Assets-Management-App}
+
+\begin{itemize}
+    \item Built a financial transaction tracker with Firebase authentication and data storage, providing secure access and 99.9\% uptime reliability.
+\end{itemize}
+
+% ==========================================================
+% AUTH
+% ==========================================================
+
+\projectEntry
+{Auth NodeJS MySQL - Authentication System}
+{Node.js, TypeScript, MySQL, JWT}
+{https://github.com/Tauqeer-Ahmed-99/Auth-NodeJS-MySQL}
+
+\begin{itemize}
+    \item Built a JWT-based authentication system with access control, reducing unauthorized access by 80\%.
+\end{itemize}
+
+% ==========================================================
+% ADDITIONAL PROJECTS
+% ==========================================================
+
+\projectEntry
+{Additional Projects}
+{}
+{https://github.com/Tauqeer-Ahmed-99}
+
+\begin{itemize}
+    \item Assets Management (Flutter)
+    \item Cryptowall (React, Python)
+    \item Apps Toolchain Tracker (Next.js, PostgreSQL)
+    \item My Portfolio (React, Tailwind)
+    \item My Networks (React, Firestore)
+    \item Train Ticket Booking (React, Node.js, MUI)
+    \item Music Player (React, Tailwind, FirestoreDB)
+    \item Ping Me Chat (Flutter, Firestore RTDB)
+    \item Travel Companion (React Native, Google Maps)
+    \item Additional personal and open-source projects available on GitHub
+\end{itemize}
+
+% ---------- Education ----------
+\section{Education}
+
+\resumeEntry
+{BITS Pilani - Work Integrated Learning Programmes}
+{Jan 2023 - Jan 2025}
+{Master of Technology (M.Tech), Software Systems, Specialization in IoT}
+{CGPA: 7.87}
+
+\vspace{3pt}
+
+\resumeEntry
+{Lokmanya Tilak College of Engineering}
+{2017 - 2020}
+{Bachelor's Degree, Mechanical Engineering}
+{CGPA: 7.60}
+
+\vspace{3pt}
+
+\resumeEntry
+{M.H. Saboo Siddik College of Engineering}
+{Aug 2014 - Jun 2017}
+{Diploma, Mechanical Engineering}
+{}
+
+% ---------- Additional Information ----------
+\section{Additional information}
+
+\textbf{Spoken languages:}
+English, Urdu, Hindi
+
+\end{document}
