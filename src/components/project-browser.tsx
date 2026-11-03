@@ -4,6 +4,7 @@ import { useState } from "react";
 import { ArrowUpRight, ChevronDown } from "lucide-react";
 import { projects, otherProjects } from "@/lib/data";
 import { ProjectArt } from "@/components/visuals/project-art";
+import { TechnologyIcon } from "@/components/technology-icon";
 
 const filters = [
   { label: "All projects", value: "all" },
@@ -99,11 +100,12 @@ export function ProjectBrowser() {
                   className="project-technologies"
                   aria-label={`${project.title} technologies`}
                 >
-                  {project.technologies
-                    .slice(0, leading ? 6 : 4)
-                    .map((technology) => (
-                      <li key={technology}>{technology}</li>
-                    ))}
+                  {project.technologies.map((technology) => (
+                    <li key={technology}>
+                      <TechnologyIcon name={technology} />
+                      {technology}
+                    </li>
+                  ))}
                 </ul>
                 <div className="project-links">
                   <a
@@ -155,7 +157,20 @@ export function ProjectBrowser() {
             >
               <div>
                 <h3>{project.title}</h3>
-                <p>{project.technologies}</p>
+                <ul
+                  className="project-technologies additional-technologies"
+                  aria-label={`${project.title} technologies`}
+                >
+                  {project.technologies.split(",").map((technology) => {
+                    const name = technology.trim();
+                    return (
+                      <li key={name}>
+                        <TechnologyIcon name={name} />
+                        {name}
+                      </li>
+                    );
+                  })}
+                </ul>
               </div>
               <ArrowUpRight size={18} aria-hidden="true" />
             </a>

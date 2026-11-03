@@ -1,9 +1,25 @@
+import {
+  Braces,
+  CircuitBoard,
+  Container,
+  Database,
+  Smartphone,
+} from "lucide-react";
 import { skills } from "@/lib/data";
+import { TechnologyIcon } from "@/components/technology-icon";
 
 const groups = [
-  { name: "Frontend", tools: skills.frontend.slice(0, 6) },
+  {
+    name: "Frontend",
+    detail: "React and TypeScript applications",
+    icon: Braces,
+    tools: skills.frontend.slice(0, 6),
+    accent: "iris",
+  },
   {
     name: "Backend & data",
+    detail: "APIs, authentication, and databases",
+    icon: Database,
     tools: [
       "Node.js",
       "Python",
@@ -12,9 +28,12 @@ const groups = [
       "Drizzle ORM",
       "REST APIs",
     ],
+    accent: "blue",
   },
   {
     name: "Infrastructure",
+    detail: "Deployments and background jobs",
+    icon: Container,
     tools: [
       "Docker",
       "Redis",
@@ -23,9 +42,12 @@ const groups = [
       "CI/CD",
       "Cloudflare Tunnel",
     ],
+    accent: "peach",
   },
   {
     name: "Mobile & IoT",
+    detail: "Mobile apps and connected devices",
+    icon: Smartphone,
     tools: [
       "React Native",
       "Flutter",
@@ -34,6 +56,7 @@ const groups = [
       "WebRTC",
       "Mediasoup",
     ],
+    accent: "mint",
   },
 ];
 
@@ -52,17 +75,29 @@ export function Skills() {
       </div>
       <div className="skills-grid">
         {groups.map((group) => (
-          <div className="skill-group" key={group.name}>
+          <article className="skill-group" key={group.name}>
+            <span className={`skill-symbol ${group.accent}`}>
+              <group.icon size={24} strokeWidth={1.5} aria-hidden="true" />
+            </span>
             <h3>{group.name}</h3>
+            <p>{group.detail}</p>
             <ul className="skill-tags">
               {group.tools.map((tool) => (
-                <li key={tool}>{tool}</li>
+                <li key={tool}>
+                  <TechnologyIcon name={tool} />
+                  {tool}
+                </li>
               ))}
             </ul>
-          </div>
+          </article>
         ))}
       </div>
-      <p className="learning-note">I'm also learning Go and Rust.</p>
+      <div className="learning-note">
+        <span className="learning-symbol">
+          <CircuitBoard size={19} aria-hidden="true" />
+        </span>
+        <p>I'm currently learning Go and Rust.</p>
+      </div>
     </section>
   );
 }

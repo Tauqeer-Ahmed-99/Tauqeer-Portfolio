@@ -672,6 +672,9 @@ h1 > span {
   margin-top: 1.4rem;
 }
 .project-technologies li {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
   padding: 0.3rem 0.55rem;
   font-size: 0.75rem;
   border: 1px solid var(--border);
@@ -782,6 +785,14 @@ h1 > span {
   font-size: 0.75rem;
   color: var(--muted-foreground);
 }
+.experience-company .company-hiring {
+  grid-column: 1 / -1;
+  max-width: 18rem;
+  margin-block: 1.25rem 0.25rem;
+  color: var(--foreground);
+  font-size: 0.875rem;
+  line-height: 1.8;
+}
 .experience-timeline {
   border-left: 1px solid var(--border);
 }
@@ -881,13 +892,38 @@ h1 > span {
   color: var(--muted-foreground);
   line-height: 1.65;
 }
+.skill-symbol {
+  display: grid;
+  place-items: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 0.875rem;
+  color: var(--accent);
+  margin-bottom: 1.5rem;
+}
+.iris {
+  background: var(--iris-soft);
+}
+.blue {
+  background: var(--blue-soft);
+}
+.peach {
+  background: var(--peach-soft);
+}
+.mint {
+  background: var(--mint-soft);
+  color: var(--positive);
+}
 .skills-grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 1.25rem;
 }
 .skill-group {
-  padding: 0 1.5rem 0 0;
+  padding: 1.5rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 1.25rem;
 }
 .skill-group h3 {
   font-size: 1rem;
@@ -903,20 +939,53 @@ h1 > span {
 }
 .skill-tags {
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
   gap: 0.45rem 0.8rem;
   margin-top: 1.25rem;
 }
 .skill-tags li {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
   font-size: 0.75rem;
   color: var(--muted-foreground);
 }
+.tech-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  width: 1.35rem;
+  height: 1.35rem;
+  padding: 0.15rem;
+  background: #fff;
+  color: #39404f;
+  border-radius: 0.25rem;
+  box-shadow: 0 0 0 1px rgba(32, 36, 49, 0.06);
+}
+.tech-icon img {
+  width: 1rem;
+  height: 1rem;
+  object-fit: contain;
+}
+.tech-icon svg {
+  width: 1rem;
+  height: 1rem;
+}
+.additional-technologies {
+  margin-top: 0.65rem;
+}
+.learning-symbol {
+  color: var(--accent);
+}
 .learning-note {
-  margin-top: 2rem;
-  padding-top: 1.5rem;
-  border-top: 1px solid var(--border);
-  color: var(--muted-foreground);
-  font-size: 0.875rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1.75rem;
+  padding: 1.25rem 1.5rem;
+  background: var(--iris-soft);
+  border-radius: 1rem;
 }
 .learning-note p {
   font-size: 0.8125rem;
@@ -936,13 +1005,30 @@ h1 > span {
   align-items: center;
   gap: 6rem;
 }
+.portrait-note {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  transform: rotate(-4deg);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  padding: 1rem 1.3rem;
+  border-radius: 0.75rem;
+  font-size: 0.875rem;
+  line-height: 1.7;
+  letter-spacing: -0.02em;
+}
 .about-portrait {
   position: relative;
-  padding: 0;
+  padding: 1.2rem 1.2rem 4rem;
 }
 .portrait-mat {
-  overflow: hidden;
-  border-radius: 1rem;
+  background: var(--iris-soft);
+  border: 1px solid var(--border);
+  border-radius: 1.7rem;
+  padding: 1.2rem;
+  transform: rotate(-4deg);
 }
 .portrait-image {
   width: 100%;
@@ -1487,6 +1573,9 @@ h1 > span {
   .email-row {
     font-size: 0.75rem;
     gap: 0.35rem;
+  }
+  .skill-symbol {
+    margin-bottom: 1rem;
   }
 }
 @media (max-width: 360px) {
@@ -2185,5 +2274,8 @@ h1 > span {
   .ledger-tile {
     right: 3%;
     bottom: 8%;
+  }
+  .skill-symbol {
+    margin-bottom: 1rem;
   }
 }

@@ -25,6 +25,11 @@ export function About() {
             <MapPin size={14} aria-hidden="true" />
             Kalyan, Maharashtra<span>India</span>
           </div>
+          <span className="portrait-note">
+            Tauqeer Khan
+            <br />
+            Software engineer
+          </span>
         </div>
         <div className="about-copy">
           <h2 id="about-heading">About me</h2>

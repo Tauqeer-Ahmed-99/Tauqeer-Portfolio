@@ -102,7 +102,7 @@ export const experience = [
       "Diagnosed and resolved production incidents with 90% faster turnaround.",
       'Developed "Hive", a Flutter-based mobile app for office desk reservations, improving employee efficiency by 60%.',
       'Led development of "IM Learning", a workforce development platform.',
-      "Conducted 25+ technical interviews and trained 30+ developers in React.js.",
+      "Interviewed 35+ candidates for engineering roles and trained 30+ developers in React.js.",
     ],
   },
 ];

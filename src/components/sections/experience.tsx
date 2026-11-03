@@ -47,6 +47,9 @@ export function Experience() {
             <h3>Ingram Micro</h3>
             <p>Mumbai, India</p>
             <span className="company-tenure">Dec 2021 to present</span>
+            <p className="company-hiring">
+              Interviewed 35+ candidates for engineering roles.
+            </p>
             <a
               className="text-link"
               href="/resume.pdf"
