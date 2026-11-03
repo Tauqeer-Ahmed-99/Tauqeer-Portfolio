@@ -85,6 +85,11 @@ export function ProjectBrowser() {
                       {project.title}
                     </a>
                   </h3>
+                  <ArrowUpRight
+                    size={23}
+                    strokeWidth={1.5}
+                    aria-hidden="true"
+                  />
                 </div>
                 <p>{project.description[0]}</p>
                 {wide && (
