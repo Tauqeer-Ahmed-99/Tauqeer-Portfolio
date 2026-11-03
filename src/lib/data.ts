@@ -2,7 +2,7 @@ export const siteMetadata = {
   name: "Tauqeer Khan",
   title: "Senior Software Engineer",
   description:
-    "Senior Software Engineer with 5+ years of experience building production web applications used across 50+ countries. Strong focus on React.js, TypeScript, Next.js, Node.js, PostgreSQL, and frontend architecture.",
+    "Tauqeer Khan, Senior Software Engineer at Ingram Micro. React, TypeScript, Next.js, mobile apps, and Raspberry Pi projects. Based in Kalyan, India.",
   summary:
     "Senior Software Engineer with 5+ years of experience building production web applications used across 50+ countries. Strong focus on React.js, TypeScript, Next.js, Node.js, PostgreSQL, and frontend architecture. Experienced in building shared UI components, improving application performance, reviewing code, mentoring engineers, and working with business stakeholders.",
   email: "tauqueerrkhan@gmail.com",

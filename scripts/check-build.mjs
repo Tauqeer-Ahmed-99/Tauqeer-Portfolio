@@ -56,9 +56,9 @@ const structuredData = [
   ),
 ].map((match) => JSON.parse(match[1]));
 assert(
-  structuredData.some(
-    (item) => item["@type"] === "Person" && item.name === "Tauqeer Khan",
-  ),
+  structuredData
+    .flatMap((item) => item["@graph"] || [item])
+    .some((item) => item["@type"] === "Person" && item.name === "Tauqeer Khan"),
   "Profile metadata must survive the revamp",
 );
 

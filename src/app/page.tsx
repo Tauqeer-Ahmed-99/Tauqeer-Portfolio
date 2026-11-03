@@ -6,24 +6,15 @@ import { Experience } from "@/components/sections/experience";
 import { Projects } from "@/components/sections/projects";
 import { Skills } from "@/components/sections/skills";
 import { Contact } from "@/components/sections/contact";
-import { siteMetadata } from "@/lib/data";
+import { profileStructuredData, serializeStructuredData } from "@/lib/seo";
 
 export default function Home() {
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    name: siteMetadata.name,
-    jobTitle: siteMetadata.title,
-    url: siteMetadata.website,
-    sameAs: [siteMetadata.github, siteMetadata.linkedin],
-    description: siteMetadata.description,
-  };
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c"),
+          __html: serializeStructuredData(profileStructuredData),
         }}
       />
       <a className="skip-link" href="#main-content">
