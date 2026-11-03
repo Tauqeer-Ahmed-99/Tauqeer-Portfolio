@@ -39,12 +39,6 @@ export default function Home() {
         <Contact />
       </main>
       <footer className="site-footer section-shell">
-        <div className="footer-signoff">
-          <span className="brand-mark" aria-hidden="true">
-            tk<span>.</span>
-          </span>
-          <span>Thoughtfully built, from the ground up.</span>
-        </div>
         <p>© {new Date().getFullYear()} Tauqeer Khan</p>
         <a href="#hero">
           Back to top <ArrowUpRight size={14} aria-hidden="true" />

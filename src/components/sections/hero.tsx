@@ -21,26 +21,20 @@ export function Hero() {
     >
       <div className="hero-main">
         <div className="hero-copy">
-          <div className="role-badge">
-            <span className="status-dot" />
-            Senior Software Engineer at Ingram Micro
-          </div>
-          <p className="hero-intro">
-            Hi, I’m Tauqeer <span aria-hidden="true">↗</span>
-          </p>
+          <p className="hero-role">Senior Software Engineer at Ingram Micro</p>
           <h1 id="hero-heading">
-            Good software.
+            Tauqeer
             <br />
-            <span>Every layer.</span>
+            <span>Khan.</span>
           </h1>
           <p className="hero-description">
-            I build thoughtful interfaces and the systems behind them. From
-            products used across 50+ countries to the connected devices on my
-            desk.
+            I build React and TypeScript applications at Ingram Micro. Outside
+            work, I build deployment tools, mobile apps, and home automation
+            systems with Raspberry Pi.
           </p>
           <div className="hero-actions">
             <a className="button button-primary" href="#projects">
-              Explore my work <ArrowDownRight size={18} aria-hidden="true" />
+              View projects <ArrowDownRight size={18} aria-hidden="true" />
             </a>
             <a
               className="button button-secondary"
@@ -66,11 +60,6 @@ export function Hero() {
         <HeroVisual />
       </div>
       <div className="hero-evidence">
-        <p className="evidence-caption">
-          Built with care.
-          <br />
-          <span>Made for the real world.</span>
-        </p>
         <dl className="profile-numbers">
           <div>
             <dt>Years of experience</dt>
@@ -100,11 +89,7 @@ export function Hero() {
         </a>
       </div>
       <div className="technology-strip" aria-label="Core technologies">
-        <span className="technology-caption">
-          A few tools
-          <br />
-          of the trade
-        </span>
+        <span className="technology-caption">Main stack</span>
         {technologies.map((technology) => (
           <span className="technology-logo" key={technology.name}>
             <Image

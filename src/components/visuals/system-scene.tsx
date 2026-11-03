@@ -7,6 +7,7 @@ import { MathUtils, type Group } from "three";
 import { Layers2, RotateCcw } from "lucide-react";
 import { useReducedMotion } from "framer-motion";
 import { SystemsIllustration } from "./systems-illustration";
+import { blockRadius, mountHeight } from "@/lib/scene-layout";
 
 type Point = [number, number, number];
 type Target = { x: number; y: number };
@@ -43,7 +44,7 @@ function Block({
       args={size}
       position={position}
       rotation={rotation}
-      radius={radius}
+      radius={blockRadius(size, radius)}
       smoothness={2}
       bevelSegments={2}
       castShadow
@@ -60,7 +61,10 @@ function Block({
 
 function Monitor() {
   return (
-    <group position={[-0.9, 0.2, -0.45]} rotation={[0, 0.08, 0]}>
+    <group
+      position={[-0.9, mountHeight.monitor, -0.45]}
+      rotation={[0, 0.08, 0]}
+    >
       <Block
         size={[1.05, 0.07, 0.65]}
         position={[0, 0.08, 0.05]}
@@ -169,7 +173,7 @@ function Monitor() {
 
 function Server() {
   return (
-    <group position={[1.28, 0.25, -0.35]}>
+    <group position={[1.28, mountHeight.server, -0.35]}>
       <Block
         size={[1.03, 0.1, 1.02]}
         position={[0, 0, 0]}
@@ -214,7 +218,10 @@ function Server() {
 
 function CircuitBoard() {
   return (
-    <group position={[-0.45, 0.26, 1.08]} rotation={[0, -0.08, 0]}>
+    <group
+      position={[-0.45, mountHeight.raspberryPi, 1.08]}
+      rotation={[0, -0.08, 0]}
+    >
       <Block
         size={[1.02, 0.09, 0.75]}
         position={[0, 0, 0]}
@@ -286,7 +293,7 @@ function FloatingInterface() {
     <group position={[0.3, 2.1, -1.03]} rotation={[0, -0.22, 0]}>
       <RoundedBox
         args={[1.48, 0.95, 0.1]}
-        radius={0.07}
+        radius={blockRadius([1.48, 0.95, 0.1], 0.07)}
         smoothness={2}
         bevelSegments={2}
       >
@@ -528,7 +535,7 @@ export default function SystemScene() {
         ) : (
           <Layers2 size={14} aria-hidden="true" />
         )}
-        {expanded ? "Bring it together" : "Explore the layers"}
+        {expanded ? "Reset view" : "Separate layers"}
       </button>
     </div>
   );

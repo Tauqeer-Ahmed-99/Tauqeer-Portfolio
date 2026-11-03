@@ -7,7 +7,7 @@ const highlights = [
   ["30+", "Developers trained in React"],
 ];
 const descriptions = [
-  "Leading frontend implementation for the Claiming Microfrontend in X4A, an enterprise claims platform. I own the codebase structure, build shared UI, and help engineers deliver with confidence.",
+  "I lead frontend implementation for the Claiming Microfrontend in X4A. I maintain its codebase structure, build shared UI, and review implementation work.",
   "Built and maintained IM360, a CRM used across 50+ countries. Alongside the web platform, I developed a Flutter desk-booking app and led an employee learning platform.",
 ];
 const contributions = [
@@ -33,16 +33,10 @@ export function Experience() {
       <div className="section-shell">
         <div className="section-heading">
           <div>
-            <p className="eyebrow">Experience</p>
-            <h2 id="experience-heading">
-              Built at scale.
-              <br />
-              Learned by doing.
-            </h2>
+            <h2 id="experience-heading">Experience</h2>
           </div>
           <p className="section-description">
-            Growing from building features to helping teams build better
-            software.
+            Working on enterprise applications at Ingram Micro since 2021.
           </p>
         </div>
         <div className="experience-layout">
@@ -52,7 +46,7 @@ export function Experience() {
             </div>
             <h3>Ingram Micro</h3>
             <p>Mumbai, India</p>
-            <span className="company-tenure">Dec 2021 — Present</span>
+            <span className="company-tenure">Dec 2021 to present</span>
             <a
               className="text-link"
               href="/resume.pdf"

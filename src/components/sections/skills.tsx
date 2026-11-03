@@ -1,25 +1,10 @@
-import {
-  Braces,
-  CircuitBoard,
-  Container,
-  Database,
-  Smartphone,
-} from "lucide-react";
 import { skills } from "@/lib/data";
 
 const groups = [
-  {
-    name: "Interfaces",
-    detail: "Where I spend most of my time",
-    icon: Braces,
-    skills: skills.frontend.slice(0, 6),
-    accent: "iris",
-  },
+  { name: "Frontend", tools: skills.frontend.slice(0, 6) },
   {
     name: "Backend & data",
-    detail: "The work behind the experience",
-    icon: Database,
-    skills: [
+    tools: [
       "Node.js",
       "Python",
       "FastAPI",
@@ -27,13 +12,10 @@ const groups = [
       "Drizzle ORM",
       "REST APIs",
     ],
-    accent: "blue",
   },
   {
     name: "Infrastructure",
-    detail: "From a commit to a running product",
-    icon: Container,
-    skills: [
+    tools: [
       "Docker",
       "Redis",
       "BullMQ",
@@ -41,21 +23,17 @@ const groups = [
       "CI/CD",
       "Cloudflare Tunnel",
     ],
-    accent: "peach",
   },
   {
-    name: "Mobile & connected",
-    detail: "Beyond the browser",
-    icon: Smartphone,
-    skills: [
+    name: "Mobile & IoT",
+    tools: [
       "React Native",
       "Flutter",
       "Expo",
       "Raspberry Pi",
-      "IoT",
       "WebRTC",
+      "Mediasoup",
     ],
-    accent: "mint",
   },
 ];
 
@@ -67,44 +45,24 @@ export function Skills() {
       aria-labelledby="skills-heading"
     >
       <div className="section-heading">
-        <div>
-          <p className="eyebrow">The toolbox</p>
-          <h2 id="skills-heading">
-            Different tools.
-            <br />
-            One builder’s mindset.
-          </h2>
-        </div>
+        <h2 id="skills-heading">Tools I use</h2>
         <p className="section-description">
-          React and TypeScript are home. The best solution sometimes lives a
-          little further out.
+          Most of my day-to-day work is in React and TypeScript.
         </p>
       </div>
       <div className="skills-grid">
         {groups.map((group) => (
-          <article className="skill-group" key={group.name}>
-            <span className={`skill-symbol ${group.accent}`}>
-              <group.icon size={24} strokeWidth={1.5} aria-hidden="true" />
-            </span>
+          <div className="skill-group" key={group.name}>
             <h3>{group.name}</h3>
-            <p>{group.detail}</p>
             <ul className="skill-tags">
-              {group.skills.map((skill) => (
-                <li key={skill}>{skill}</li>
+              {group.tools.map((tool) => (
+                <li key={tool}>{tool}</li>
               ))}
             </ul>
-          </article>
+          </div>
         ))}
       </div>
-      <div className="learning-note">
-        <span className="learning-symbol">
-          <CircuitBoard size={19} aria-hidden="true" />
-        </span>
-        <p>
-          <strong>Always a work in progress.</strong> Currently exploring Go,
-          Rust, and the systems that connect software to the physical world.
-        </p>
-      </div>
+      <p className="learning-note">I'm also learning Go and Rust.</p>
     </section>
   );
 }

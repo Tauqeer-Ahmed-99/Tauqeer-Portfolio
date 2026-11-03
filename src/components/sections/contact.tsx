@@ -10,29 +10,16 @@ export function Contact() {
       aria-labelledby="contact-heading"
     >
       <div className="contact-panel">
-        <div className="contact-orb" aria-hidden="true">
-          <div />
-          <div />
-          <div />
-        </div>
         <div className="contact-copy">
-          <p className="eyebrow">Let’s connect</p>
-          <h2 id="contact-heading">
-            Have something
-            <br />
-            good in mind?
-          </h2>
-          <p>
-            An interesting problem, a collaboration, or just a conversation
-            about building things. I’d love to hear it.
-          </p>
+          <h2 id="contact-heading">Get in touch</h2>
+          <p>For work, project questions, or a collaboration, email me.</p>
         </div>
         <div className="contact-actions">
           <a
             className="button button-primary"
             href={`mailto:${siteMetadata.email}`}
           >
-            Say hello <ArrowUpRight size={18} aria-hidden="true" />
+            Email me <ArrowUpRight size={18} aria-hidden="true" />
           </a>
           <div className="email-row">
             <Mail size={17} aria-hidden="true" />

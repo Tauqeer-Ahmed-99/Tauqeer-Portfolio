@@ -19,6 +19,26 @@ assert.match(html, /class="skip-link"/, "Keyboard users need the skip link");
 const ids = [...html.matchAll(/\sid="([^"]+)"/g)].map((match) => match[1]);
 assert.equal(ids.length, new Set(ids).size, "Rendered IDs must be unique");
 const links = [...html.matchAll(/\shref="([^"]+)"/g)].map((match) => match[1]);
+const projectTitles = [
+  ...html.matchAll(
+    /<article class="project-card[^\"]*"[\s\S]*?<h3><a[^>]*>([^<]+)<\/a><\/h3>/g,
+  ),
+].map((match) => match[1]);
+assert.deepEqual(
+  projectTitles.slice(0, 3),
+  ["NMT Deploy", "Control Nest V2", "Vaultify"],
+  "New projects must lead the portfolio in the requested order",
+);
+assert.equal(
+  (html.match(/class="project-card project-leading"/g) || []).length,
+  2,
+  "The first two projects must share the desktop row",
+);
+assert.match(
+  html,
+  /class="project-card project-wide"/,
+  "Vaultify must occupy the following row",
+);
 for (const link of links.filter((link) => link.startsWith("#"))) {
   assert(ids.includes(link.slice(1)), `Missing destination for ${link}`);
 }

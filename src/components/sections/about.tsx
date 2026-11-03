@@ -25,33 +25,23 @@ export function About() {
             <MapPin size={14} aria-hidden="true" />
             Kalyan, Maharashtra<span>India</span>
           </div>
-          <span className="portrait-note">
-            Engineer by profession.
-            <br />
-            Builder by instinct.
-          </span>
         </div>
         <div className="about-copy">
-          <p className="eyebrow">A little about me</p>
-          <h2 id="about-heading">
-            Curiosity is
-            <br />
-            the common thread.
-          </h2>
+          <h2 id="about-heading">About me</h2>
           <p>
-            I’m Tauqeer, a software engineer based in Kalyan, India. My path
-            started in mechanical engineering and led to software systems,
-            interfaces, and connected devices.
+            I'm based in Kalyan, Maharashtra. I studied mechanical engineering
+            before moving into software, and completed an M.Tech in Software
+            Systems at BITS Pilani WILP, specializing in IoT.
           </p>
           <p>
-            Today, I work on enterprise frontend systems at Ingram Micro.
-            Outside work, I follow ideas from end to end: a self-hosted
-            deployment platform, a real-time video app, or a Raspberry Pi that
-            makes home a little smarter.
+            At Ingram Micro, I work on the frontend of X4A's claims platform. I
+            also review code, maintain shared components, and mentor engineers.
           </p>
           <p>
-            I care about the details people feel, and the engineering they never
-            have to think about.
+            My personal projects give me a reason to work on the other parts:
+            APIs, databases, deployments, and hardware. Control Nest started
+            with a Raspberry Pi and now includes a mobile app and hosted
+            service.
           </p>
           <div className="education-note">
             <GraduationCap size={23} strokeWidth={1.5} aria-hidden="true" />
@@ -66,7 +56,7 @@ export function About() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            More about my journey <ArrowUpRight size={16} aria-hidden="true" />
+            LinkedIn <ArrowUpRight size={16} aria-hidden="true" />
           </a>
         </div>
       </div>

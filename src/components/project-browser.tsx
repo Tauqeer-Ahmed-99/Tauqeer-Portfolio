@@ -1,26 +1,20 @@
 "use client";
 
 import { useState } from "react";
-import { ArrowUpRight, ChevronDown, Code2 } from "lucide-react";
+import { ArrowUpRight, ChevronDown } from "lucide-react";
 import { projects, otherProjects } from "@/lib/data";
 import { ProjectArt } from "@/components/visuals/project-art";
 
-const filters = ["All work", "Web & platforms", "Connected devices"] as const;
-type Filter = (typeof filters)[number];
-const summaries: Record<string, string> = {
-  "NMT Deploy":
-    "A self-hosted platform that takes a GitHub repository to a running Docker container. Framework detection, live logs, and your own infrastructure — in one place.",
-  "NMT Store":
-    "A full-stack electronics store, from product discovery and reviews to checkout and order management.",
-  "Meet Flow":
-    "Exploring real-time communication with a low-latency WebRTC video app powered by Mediasoup.",
-  "AutoPi Hub":
-    "Bringing software into the physical world. A Raspberry Pi platform for controlling connected devices at home.",
-};
-const selected = projects.slice(0, 4);
+const filters = [
+  { label: "All projects", value: "all" },
+  { label: "Web", value: "web" },
+  { label: "Mobile & IoT", value: "mobile" },
+] as const;
+type Filter = (typeof filters)[number]["value"];
+const selected = projects.filter((project) => project.selected);
 const additional = [
   ...projects
-    .slice(4)
+    .filter((project) => !project.selected)
     .map((project) => ({
       title: project.title,
       technologies: project.technologies.join(", "),
@@ -30,57 +24,57 @@ const additional = [
 ];
 
 export function ProjectBrowser() {
-  const [filter, setFilter] = useState<Filter>("All work");
+  const [filter, setFilter] = useState<Filter>("all");
   const visible = selected.filter(
     (project) =>
-      filter === "All work" ||
-      (filter === "Connected devices"
-        ? project.title === "AutoPi Hub"
-        : project.title !== "AutoPi Hub"),
+      filter === "all" ||
+      (filter === "web"
+        ? project.category === "web"
+        : project.category !== "web"),
   );
-
   return (
     <>
       <div className="project-filter-row">
         <div
           className="project-filters"
           role="group"
-          aria-label="Filter selected projects"
+          aria-label="Filter projects"
         >
           {filters.map((item) => (
             <button
               type="button"
-              key={item}
-              aria-pressed={filter === item}
+              key={item.value}
+              aria-pressed={filter === item.value}
               aria-controls="project-results"
-              onClick={() => setFilter(item)}
+              onClick={() => setFilter(item.value)}
             >
-              {item}
+              {item.label}
             </button>
           ))}
         </div>
-        <p className="project-count" role="status">
-          {visible.length} selected project{visible.length === 1 ? "" : "s"}
+        <p className="sr-only" role="status">
+          {visible.length} projects shown
         </p>
       </div>
       <div className="project-grid" id="project-results">
         {visible.map((project) => {
-          const featured = project.title === "NMT Deploy";
+          const leading =
+            project.title === "NMT Deploy" ||
+            project.title === "Control Nest V2";
+          const wide = project.title === "Vaultify";
           return (
             <article
-              className={`project-card${featured ? " project-featured" : ""}`}
+              className={`project-card${leading ? " project-leading" : ""}${wide ? " project-wide" : ""}`}
               key={project.title}
             >
               <ProjectArt title={project.title} />
               <div className="project-copy">
-                <div className="project-category">
-                  {featured
-                    ? "From repository to production"
-                    : project.subtitle}
+                <p className="project-category">
+                  {project.subtitle}
                   {project.title === "Meet Flow" && (
                     <span className="project-in-progress">In progress</span>
                   )}
-                </div>
+                </p>
                 <div className="project-title-row">
                   <h3>
                     <a
@@ -91,35 +85,44 @@ export function ProjectBrowser() {
                       {project.title}
                     </a>
                   </h3>
-                  <ArrowUpRight
-                    size={23}
-                    strokeWidth={1.5}
-                    aria-hidden="true"
-                  />
                 </div>
-                <p>{summaries[project.title]}</p>
+                <p>{project.description[0]}</p>
+                {wide && (
+                  <p className="project-detail">{project.description[1]}</p>
+                )}
                 <ul
                   className="project-technologies"
                   aria-label={`${project.title} technologies`}
                 >
-                  {(featured
-                    ? ["Next.js", "TypeScript", "Docker", "Redis", "PostgreSQL"]
-                    : project.technologies.slice(0, 3)
-                  ).map((technology) => (
-                    <li key={technology}>{technology}</li>
-                  ))}
+                  {project.technologies
+                    .slice(0, leading ? 6 : 4)
+                    .map((technology) => (
+                      <li key={technology}>{technology}</li>
+                    ))}
                 </ul>
-                {featured && (
+                <div className="project-links">
                   <a
-                    className="project-visit"
                     href={project.link}
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    Explore NMT Deploy{" "}
-                    <ArrowUpRight size={16} aria-hidden="true" />
+                    {project.title === "Vaultify"
+                      ? "Android release"
+                      : project.link === project.github
+                        ? "Source code"
+                        : "Visit site"}
+                    <ArrowUpRight size={15} aria-hidden="true" />
                   </a>
-                )}
+                  {project.github && project.github !== project.link && (
+                    <a
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      GitHub <ArrowUpRight size={15} aria-hidden="true" />
+                    </a>
+                  )}
+                </div>
               </div>
             </article>
           );
@@ -128,11 +131,8 @@ export function ProjectBrowser() {
       <details className="more-projects">
         <summary>
           <span>
-            <Code2 size={18} aria-hidden="true" />
-            There’s more in the workshop
-            <span className="additional-count">
-              {additional.length} projects
-            </span>
+            Other projects
+            <span className="additional-count">{additional.length}</span>
           </span>
           <ChevronDown
             className="disclosure-chevron"

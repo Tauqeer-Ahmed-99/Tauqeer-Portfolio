@@ -4,9 +4,9 @@ import { useEffect, useRef, useState } from "react";
 import { ArrowUpRight, Menu, X } from "lucide-react";
 
 const links = [
-  { label: "Work", href: "#projects" },
+  { label: "Projects", href: "#projects" },
   { label: "Experience", href: "#experience" },
-  { label: "Toolbox", href: "#skills" },
+  { label: "Skills", href: "#skills" },
   { label: "About", href: "#about" },
 ];
 
@@ -78,7 +78,7 @@ export function SiteHeader() {
           ))}
         </nav>
         <a className="nav-contact" href="#contact">
-          Let’s talk <ArrowUpRight size={16} aria-hidden="true" />
+          Contact <ArrowUpRight size={16} aria-hidden="true" />
         </a>
         <button
           className="menu-toggle icon-button"

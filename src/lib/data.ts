@@ -100,8 +100,8 @@ export const experience = [
       "Developed and maintained the IM360 CRM web application used across 50+ countries using React.js, TypeScript, and Fabric/Fluent UI — supports ~7% of Ingram Micro's yearly revenue.",
       "Improved application performance by 30% through efficient state management and frontend implementation.",
       "Diagnosed and resolved production incidents with 90% faster turnaround.",
-      "Developed \"Hive\", a Flutter-based mobile app for office desk reservations, improving employee efficiency by 60%.",
-      "Led development of \"IM Learning\", a workforce development platform.",
+      'Developed "Hive", a Flutter-based mobile app for office desk reservations, improving employee efficiency by 60%.',
+      'Led development of "IM Learning", a workforce development platform.',
       "Conducted 25+ technical interviews and trained 30+ developers in React.js.",
     ],
   },
@@ -110,7 +110,9 @@ export const experience = [
 export const projects = [
   {
     title: "NMT Deploy",
-    subtitle: "Self-Hosted PaaS",
+    category: "web",
+    selected: true,
+    subtitle: "Self-hosted deployment platform",
     technologies: [
       "Next.js",
       "React",
@@ -126,13 +128,53 @@ export const projects = [
     github: "",
     image: "/images/nmt-deploy.png",
     description: [
-      "Built a self-hosted PaaS that deploys GitHub repositories to Docker with framework detection, generated production domains, encrypted env vars, and live build/runtime logs.",
+      "Deploy GitHub repositories to Docker on your own server. Includes framework detection, encrypted environment variables, deployment history, and live build logs.",
       "Designed a monorepo architecture with Next.js, tRPC, and a Node.js worker for orchestration.",
     ],
   },
   {
+    title: "Control Nest V2",
+    subtitle: "Home automation",
+    category: "connected",
+    selected: true,
+    technologies: [
+      "React Native",
+      "Expo",
+      "Next.js",
+      "FastAPI",
+      "Raspberry Pi",
+      "PostgreSQL",
+    ],
+    link: "https://controlnest-v2.nmt-solutions.in/",
+    github: "https://github.com/Tauqeer-Ahmed-99/Control-Nest-v2",
+    download:
+      "https://github.com/Tauqeer-Ahmed-99/Control-Nest-v2/releases/latest",
+    image: "/images/control-nest-v2.png",
+    description: [
+      "Control lights, fans, and relay-connected devices with a mobile app and Raspberry Pi. Supports multiple houses, room management, device schedules, and shared access.",
+      "Built the Expo app, Next.js API, and FastAPI controller. The Pi handles local discovery, GPIO control, remote access through Cloudflare Tunnel, and signed updates with recovery.",
+    ],
+  },
+  {
+    title: "Vaultify",
+    subtitle: "Personal and shared ledgers",
+    category: "mobile",
+    selected: true,
+    technologies: ["React Native", "Expo", "TypeScript", "Firebase"],
+    link: "https://github.com/Tauqeer-Ahmed-99/Vaultify/releases/latest",
+    github: "https://github.com/Tauqeer-Ahmed-99/Vaultify",
+    download: "https://github.com/Tauqeer-Ahmed-99/Vaultify/releases/latest",
+    image: "/images/vaultify.png",
+    description: [
+      "An Android app for tracking money paid, received, and owed. Keep personal ledgers or share accounts with a group, with payment notes, transaction history, and balances in rupees.",
+      "Includes group invitations, member permissions, Firebase sync, push notifications, and over-the-air app updates. Payment entries record transactions made elsewhere.",
+    ],
+  },
+  {
     title: "NMT Store",
-    subtitle: "E-commerce Platform",
+    category: "web",
+    selected: true,
+    subtitle: "E-commerce",
     technologies: [
       "Next.js",
       "React Query",
@@ -153,7 +195,9 @@ export const projects = [
   },
   {
     title: "Meet Flow",
-    subtitle: "Video Conferencing",
+    category: "web",
+    selected: true,
+    subtitle: "Video conferencing",
     technologies: [
       "Node.js",
       "TypeScript",
@@ -166,22 +210,26 @@ export const projects = [
     github: "",
     image: "/images/meet-flow.png",
     description: [
-      "Low-latency WebRTC video conferencing application using Mediasoup for real-time audio and video communication.",
+      "A WebRTC video conferencing app built with React and Mediasoup. Work in progress.",
     ],
   },
   {
     title: "AutoPi Hub",
-    subtitle: "IoT Home Automation",
+    category: "connected",
+    selected: true,
+    subtitle: "Original home automation backend",
     technologies: ["Python", "FastAPI", "SQLAlchemy", "Raspberry Pi"],
     link: "https://github.com/Tauqeer-Ahmed-99/AutoPi-Hub",
     github: "https://github.com/Tauqeer-Ahmed-99/AutoPi-Hub",
     image: "/images/autopi-hub.jpg",
     description: [
-      "IoT home automation platform using Raspberry Pi to remotely control connected devices, improving system efficiency by 45%.",
+      "The original Raspberry Pi home automation backend. A FastAPI service for controlling connected devices, later developed into Control Nest V2.",
     ],
   },
   {
     title: "Control Nest",
+    category: "mobile",
+    selected: false,
     subtitle: "Smart Home Control",
     technologies: ["React Native", "React Query", "Expo"],
     link: "https://github.com/Tauqeer-Ahmed-99/Control-Nest/releases/tag/v1.0.1",
@@ -193,6 +241,8 @@ export const projects = [
   },
   {
     title: "Cryptowall",
+    category: "web",
+    selected: false,
     subtitle: "Crypto Dashboard",
     technologies: ["React", "Python", "Tailwind CSS"],
     link: "https://github.com/Tauqeer-Ahmed-99/Cryptowall",
@@ -208,7 +258,8 @@ export const otherProjects = [
   {
     title: "Tasks Management App",
     technologies: "Flutter, Back4App, Provider SDK",
-    github: "https://github.com/Tauqeer-Ahmed-99/Tasks-Management-Flutter-BITS-Pilani",
+    github:
+      "https://github.com/Tauqeer-Ahmed-99/Tasks-Management-Flutter-BITS-Pilani",
   },
   {
     title: "Assets Management App",
@@ -259,7 +310,8 @@ export const otherProjects = [
 
 export const education = [
   {
-    degree: "Master of Technology (M.Tech), Software Systems, Specialization in IoT",
+    degree:
+      "Master of Technology (M.Tech), Software Systems, Specialization in IoT",
     institution: "BITS Pilani - Work Integrated Learning Programmes",
     date: "Jan 2023 - Jan 2025",
     details: "CGPA: 7.87",

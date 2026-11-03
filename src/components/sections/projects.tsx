@@ -11,14 +11,9 @@ export function Projects() {
     >
       <div className="section-heading">
         <div>
-          <p className="eyebrow">Selected work</p>
-          <h2 id="projects-heading">Ideas, made real.</h2>
+          <h2 id="projects-heading">Projects</h2>
         </div>
         <div className="heading-aside">
-          <p>
-            Side projects. Real problems.
-            <br />A lot of learning along the way.
-          </p>
           <a
             className="text-link"
             href={siteMetadata.github}
