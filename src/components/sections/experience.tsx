@@ -1,66 +1,102 @@
-"use client";
-
+import { ArrowUpRight, Building2, Check } from "lucide-react";
 import { experience } from "@/lib/data";
-import { motion } from "framer-motion";
-import { Briefcase } from "lucide-react";
+
+const highlights = [
+  ["$12B", "Annual claims supported by X4A"],
+  ["30%", "IM360 performance improvement"],
+  ["30+", "Developers trained in React"],
+];
+const descriptions = [
+  "Leading frontend implementation for the Claiming Microfrontend in X4A, an enterprise claims platform. I own the codebase structure, build shared UI, and help engineers deliver with confidence.",
+  "Built and maintained IM360, a CRM used across 50+ countries. Alongside the web platform, I developed a Flutter desk-booking app and led an employee learning platform.",
+];
+const contributions = [
+  [
+    "Shared components across 15+ teams",
+    "Code reviews and mentoring for 2 engineers",
+    "Around 20% faster PR turnaround",
+  ],
+  [
+    "30% improvement in application performance",
+    "90% faster production incident resolution",
+    "React training for 30+ developers",
+  ],
+];
 
 export function Experience() {
   return (
-    <section id="experience" className="py-24 md:py-32 border-t border-white/5">
-      <div className="max-w-7xl mx-auto px-6 lg:px-24">
-        <div className="flex items-center gap-4 mb-16">
-          <div className="w-12 h-[1px] bg-zinc-700" />
-          <span className="text-zinc-500 uppercase tracking-widest text-sm">Career</span>
+    <section
+      id="experience"
+      className="experience-section section-space"
+      aria-labelledby="experience-heading"
+    >
+      <div className="section-shell">
+        <div className="section-heading">
+          <div>
+            <p className="eyebrow">Experience</p>
+            <h2 id="experience-heading">
+              Built at scale.
+              <br />
+              Learned by doing.
+            </h2>
+          </div>
+          <p className="section-description">
+            Growing from building features to helping teams build better
+            software.
+          </p>
         </div>
-
-        <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight mb-16">
-          Professional Experience
-        </h2>
-
-        <div className="relative">
-          {/* Timeline line */}
-          <div className="absolute left-0 md:left-8 top-0 bottom-0 w-[1px] bg-white/5" />
-
-          <div className="space-y-16">
-            {experience.map((exp, idx) => (
-              <motion.div
-                key={idx}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: idx * 0.15 }}
-                className="relative pl-8 md:pl-20"
-              >
-                {/* Timeline dot */}
-                <div className="absolute left-0 md:left-8 top-1 w-3 h-3 -translate-x-1/2 rounded-full bg-zinc-800 border-2 border-zinc-600" />
-
-                <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-2 mb-4">
-                  <div>
-                    <h3 className="text-xl font-semibold text-white">{exp.role}</h3>
-                    <div className="flex items-center gap-2 mt-1">
-                      <Briefcase className="w-4 h-4 text-zinc-500" />
-                      <span className="text-zinc-400 font-light">{exp.company}</span>
-                      <span className="text-zinc-600">·</span>
-                      <span className="text-zinc-500 text-sm">{exp.location}</span>
-                    </div>
-                  </div>
-                  <span className="text-zinc-500 text-sm shrink-0 font-medium bg-white/5 px-3 py-1 rounded-full">
-                    {exp.date}
-                  </span>
+        <div className="experience-layout">
+          <aside className="experience-company">
+            <div className="company-symbol" aria-hidden="true">
+              <Building2 size={30} strokeWidth={1.4} />
+            </div>
+            <h3>Ingram Micro</h3>
+            <p>Mumbai, India</p>
+            <span className="company-tenure">Dec 2021 — Present</span>
+            <a
+              className="text-link"
+              href="/resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              View full résumé <ArrowUpRight size={15} aria-hidden="true" />
+            </a>
+          </aside>
+          <div className="experience-timeline">
+            {experience.map((job, index) => (
+              <article className="experience-entry" key={job.role}>
+                <span
+                  className={`timeline-dot ${index === 0 ? "is-current" : ""}`}
+                  aria-hidden="true"
+                />
+                <div className="experience-entry-top">
+                  <p className="job-date">{job.date}</p>
+                  {index === 0 && (
+                    <span className="current-label">Current role</span>
+                  )}
                 </div>
-
-                <ul className="space-y-3 mt-4">
-                  {exp.responsibilities.map((resp, ridx) => (
-                    <li key={ridx} className="text-zinc-400 text-sm leading-relaxed font-light flex gap-3">
-                      <span className="text-zinc-600 mt-1.5 shrink-0">▸</span>
-                      <span>{resp}</span>
+                <h3>{job.role}</h3>
+                <p className="job-description">{descriptions[index]}</p>
+                <ul className="contributions">
+                  {contributions[index].map((item) => (
+                    <li key={item}>
+                      <Check size={15} aria-hidden="true" />
+                      {item}
                     </li>
                   ))}
                 </ul>
-              </motion.div>
+              </article>
             ))}
           </div>
         </div>
+        <dl className="impact-strip">
+          {highlights.map(([number, label]) => (
+            <div key={label}>
+              <dd>{number}</dd>
+              <dt>{label}</dt>
+            </div>
+          ))}
+        </dl>
       </div>
     </section>
   );

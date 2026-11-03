@@ -1,76 +1,73 @@
-"use client";
-
-import { siteMetadata } from "@/lib/data";
-import { motion } from "framer-motion";
 import Image from "next/image";
+import { ArrowUpRight, GraduationCap, MapPin } from "lucide-react";
+import { siteMetadata } from "@/lib/data";
 
 export function About() {
   return (
-    <section id="about" className="py-24 md:py-32 border-t border-white/5">
-      <div className="max-w-7xl mx-auto px-6 lg:px-24">
-        <div className="flex flex-col lg:flex-row gap-16 items-start">
-          {/* Profile Image Area */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="w-full lg:w-2/5 aspect-[4/5] rounded-[2rem] overflow-hidden bg-zinc-900 border border-white/5 relative shrink-0"
+    <section
+      id="about"
+      className="about-section section-shell section-space"
+      aria-labelledby="about-heading"
+    >
+      <div className="about-layout">
+        <div className="about-portrait">
+          <div className="portrait-mat">
+            <Image
+              src="/images/profile.jpeg"
+              alt="Tauqeer Khan"
+              width={520}
+              height={620}
+              sizes="(max-width: 700px) 85vw, 35vw"
+              className="portrait-image"
+            />
+          </div>
+          <div className="portrait-caption">
+            <MapPin size={14} aria-hidden="true" />
+            Kalyan, Maharashtra<span>India</span>
+          </div>
+          <span className="portrait-note">
+            Engineer by profession.
+            <br />
+            Builder by instinct.
+          </span>
+        </div>
+        <div className="about-copy">
+          <p className="eyebrow">A little about me</p>
+          <h2 id="about-heading">
+            Curiosity is
+            <br />
+            the common thread.
+          </h2>
+          <p>
+            I’m Tauqeer, a software engineer based in Kalyan, India. My path
+            started in mechanical engineering and led to software systems,
+            interfaces, and connected devices.
+          </p>
+          <p>
+            Today, I work on enterprise frontend systems at Ingram Micro.
+            Outside work, I follow ideas from end to end: a self-hosted
+            deployment platform, a real-time video app, or a Raspberry Pi that
+            makes home a little smarter.
+          </p>
+          <p>
+            I care about the details people feel, and the engineering they never
+            have to think about.
+          </p>
+          <div className="education-note">
+            <GraduationCap size={23} strokeWidth={1.5} aria-hidden="true" />
+            <div>
+              <strong>M.Tech in Software Systems</strong>
+              <span>BITS Pilani WILP · Specialization in IoT · 2025</span>
+            </div>
+          </div>
+          <a
+            className="text-link"
+            href={siteMetadata.linkedin}
+            target="_blank"
+            rel="noopener noreferrer"
           >
-            {/* PLACEHOLDER: Add your profile photo as /public/images/profile.jpg */}
-            <div className="absolute inset-0 bg-gradient-to-br from-zinc-800/60 to-zinc-950/80" />
-            <div className="absolute inset-0 flex items-center justify-center text-zinc-600">
-              <Image 
-                src="/images/profile.jpeg" 
-                alt="Tauqeer Ahmed Khan" 
-                fill
-                sizes="(max-width: 768px) 100vw, 40vw"
-                className="object-cover" 
-                priority
-              />
-            </div>
-          </motion.div>
-
-          {/* Text Content Area */}
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="w-full lg:w-3/5"
-          >
-            <div className="flex items-center gap-4 mb-8">
-              <div className="w-12 h-[1px] bg-zinc-700" />
-              <span className="text-zinc-500 uppercase tracking-widest text-sm">About Me</span>
-            </div>
-
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-white mb-8 leading-tight">
-              Building performant web applications at scale.
-            </h2>
-
-            <p className="text-zinc-400 text-lg leading-relaxed font-light mb-6">
-              {siteMetadata.summary}
-            </p>
-
-            <p className="text-zinc-400 text-lg leading-relaxed font-light mb-10">
-              I also build full-stack and infrastructure projects involving Docker, Redis, BullMQ, WebRTC, IoT, and Raspberry Pi. Currently exploring Go, Rust, and IoT systems.
-            </p>
-
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-8 pt-8 border-t border-white/5">
-              <div>
-                <p className="text-3xl font-bold text-white">5+</p>
-                <p className="text-zinc-500 text-sm mt-1">Years Experience</p>
-              </div>
-              <div>
-                <p className="text-3xl font-bold text-white">50+</p>
-                <p className="text-zinc-500 text-sm mt-1">Countries Served</p>
-              </div>
-              <div>
-                <p className="text-3xl font-bold text-white">15+</p>
-                <p className="text-zinc-500 text-sm mt-1">Teams Collaborated</p>
-              </div>
-            </div>
-          </motion.div>
+            More about my journey <ArrowUpRight size={16} aria-hidden="true" />
+          </a>
         </div>
       </div>
     </section>

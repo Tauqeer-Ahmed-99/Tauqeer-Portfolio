@@ -1,126 +1,109 @@
-"use client";
-
+import {
+  Braces,
+  CircuitBoard,
+  Container,
+  Database,
+  Smartphone,
+} from "lucide-react";
 import { skills } from "@/lib/data";
-import { motion } from "framer-motion";
-
-export const skillIconMap: Record<string, string> = {
-  "React.js": "/svg/react.svg",
-  "React": "/svg/react.svg",
-  "TypeScript": "/svg/typescript.svg",
-  "Next.js": "/svg/nextjs.svg",
-  "JavaScript (ES6+)": "/svg/javascript.svg",
-  "Tailwind CSS": "/svg/tailwind.svg",
-  "Tailwind": "/svg/tailwind.svg",
-  "MUI": "/svg/mui.svg",
-  "HTML": "/svg/html.svg",
-  "CSS": "/svg/css.svg",
-  "Node.js": "/svg/nodejs.svg",
-  "Python": "/svg/python.svg",
-  "FastAPI": "/svg/fastapi.svg",
-  "SQLAlchemy": "/svg/sqlalchemy.svg",
-  "Drizzle ORM": "/svg/drizzle.svg",
-  "PostgreSQL": "/svg/postgresql.svg",
-  "MySQL": "/svg/mysql.svg",
-  "React Native": "/svg/react.svg",
-  "React Query": "/svg/react-query.svg",
-  "Flutter": "/svg/flutter.svg",
-  "Flutter Provider": "/svg/flutter.svg",
-  "Provider SDK": "/svg/flutter.svg",
-  "Expo": "/svg/expo.svg",
-  "Firebase": "/svg/firebase.svg",
-  "Firestore": "/svg/firebase.svg",
-  "FirestoreDB": "/svg/firebase.svg",
-  "Firestore RTDB": "/svg/firebase.svg",
-  "MongoDB": "/svg/mongodb.svg",
-  "Docker": "/svg/docker.svg",
-  "Docker Compose": "/svg/docker.svg",
-  "Git": "/svg/git.svg",
-  "GitHub": "/svg/github.svg",
-  "Bitbucket": "/svg/bitbucket.svg",
-  "Redis": "/svg/redis.svg",
-  "Traefik": "/svg/traefik.svg",
-  "Cloudflare Tunnel": "/svg/cloudflare.svg",
-  "Raspberry Pi": "/svg/raspberrypi.svg",
-  "Go (exploring)": "/svg/go.svg",
-  "Rust (exploring)": "/svg/rust.svg",
-  "Azure Communication Services": "/svg/azure.svg",
-  "Google Maps APIs": "/svg/google-maps.svg",
-  "Google Maps": "/svg/google-maps.svg",
-  "JWT": "/svg/jwt.svg",
-  "Fluent UI": "/svg/traefik.svg",
-  "Mediasoup": "/images/mediasoup.webp",
-  "Fabric/Fluent UI": "/svg/fluent.svg",
-  "REST APIs": "/svg/api.svg",
-  "BullMQ": "/images/bullmq.png",
-  "CI/CD": "/svg/cicd.svg",
-  "WebRTC": "/svg/webrtc.svg",
-  "IoT": "/svg/iot.svg",
-  "WorkOS": "/svg/workos.svg"
-};
 
 const groups = [
-  { label: "Frontend", items: skills.frontend },
-  { label: "Backend", items: skills.backend },
-  { label: "Mobile", items: skills.mobile },
-  { label: "DevOps & Infrastructure", items: skills.devOps },
-  { label: "IoT & Systems", items: skills.iotAndSystems },
-  { label: "Other", items: skills.other },
+  {
+    name: "Interfaces",
+    detail: "Where I spend most of my time",
+    icon: Braces,
+    skills: skills.frontend.slice(0, 6),
+    accent: "iris",
+  },
+  {
+    name: "Backend & data",
+    detail: "The work behind the experience",
+    icon: Database,
+    skills: [
+      "Node.js",
+      "Python",
+      "FastAPI",
+      "PostgreSQL",
+      "Drizzle ORM",
+      "REST APIs",
+    ],
+    accent: "blue",
+  },
+  {
+    name: "Infrastructure",
+    detail: "From a commit to a running product",
+    icon: Container,
+    skills: [
+      "Docker",
+      "Redis",
+      "BullMQ",
+      "Traefik",
+      "CI/CD",
+      "Cloudflare Tunnel",
+    ],
+    accent: "peach",
+  },
+  {
+    name: "Mobile & connected",
+    detail: "Beyond the browser",
+    icon: Smartphone,
+    skills: [
+      "React Native",
+      "Flutter",
+      "Expo",
+      "Raspberry Pi",
+      "IoT",
+      "WebRTC",
+    ],
+    accent: "mint",
+  },
 ];
 
 export function Skills() {
   return (
-    <section id="skills" className="py-24 md:py-32 border-t border-white/5 bg-zinc-950/50">
-      <div className="max-w-7xl mx-auto px-6 lg:px-24">
-        <div className="flex items-center gap-4 mb-8">
-          <div className="w-12 h-[1px] bg-zinc-700" />
-          <span className="text-zinc-500 uppercase tracking-widest text-sm">Expertise</span>
+    <section
+      id="skills"
+      className="skills-section section-shell section-space"
+      aria-labelledby="skills-heading"
+    >
+      <div className="section-heading">
+        <div>
+          <p className="eyebrow">The toolbox</p>
+          <h2 id="skills-heading">
+            Different tools.
+            <br />
+            One builder’s mindset.
+          </h2>
         </div>
-
-        <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight mb-4">Technical Skills</h2>
-        <p className="text-zinc-400 font-light max-w-2xl mb-16">
-          Technologies and tools I use to build robust and scalable digital products.
+        <p className="section-description">
+          React and TypeScript are home. The best solution sometimes lives a
+          little further out.
         </p>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {groups.map((group, gIdx) => (
-            <motion.div
-              key={gIdx}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: gIdx * 0.1 }}
-              className="bg-white/[0.02] rounded-2xl border border-white/5 p-6 hover:border-white/10 transition-all duration-300"
-            >
-              <h3 className="text-white font-medium text-lg mb-5 flex items-center gap-3">
-                <span className="w-2 h-2 rounded-full bg-zinc-600" />
-                {group.label}
-              </h3>
-              <div className="flex flex-wrap gap-2">
-                {group.items.map((skill, idx) => {
-                  const iconPath = skillIconMap[skill];
-                  return (
-                    <span
-                      key={idx}
-                      className="flex items-center gap-2 text-sm text-zinc-400 bg-white/[0.03] border border-white/5 px-3 py-1.5 rounded-lg hover:bg-white/[0.06] hover:border-white/10 hover:text-zinc-200 transition-all duration-200 cursor-default"
-                    >
-                      {iconPath && (
-                        <span className="w-4 h-4 relative shrink-0 inline-flex">
-                          {/* eslint-disable-next-line @next/next/no-img-element */}
-                          <img
-                            src={iconPath}
-                            alt={skill}
-                            className="w-full h-full object-contain"
-                          />
-                        </span>
-                      )}
-                      {skill}
-                    </span>
-                  );
-                })}
-              </div>
-            </motion.div>
-          ))}
-        </div>
+      </div>
+      <div className="skills-grid">
+        {groups.map((group) => (
+          <article className="skill-group" key={group.name}>
+            <span className={`skill-symbol ${group.accent}`}>
+              <group.icon size={24} strokeWidth={1.5} aria-hidden="true" />
+            </span>
+            <h3>{group.name}</h3>
+            <p>{group.detail}</p>
+            <ul className="skill-tags">
+              {group.skills.map((skill) => (
+                <li key={skill}>{skill}</li>
+              ))}
+            </ul>
+          </article>
+        ))}
+      </div>
+      <div className="learning-note">
+        <span className="learning-symbol">
+          <CircuitBoard size={19} aria-hidden="true" />
+        </span>
+        <p>
+          <strong>Always a work in progress.</strong> Currently exploring Go,
+          Rust, and the systems that connect software to the physical world.
+        </p>
       </div>
     </section>
   );
